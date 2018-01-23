@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+   <localRepository>/tms/pdsgit/m2/repository</localRepository>
+   <mirrors>
+      <mirror>
+         <id>central</id>
+         <name>GE Central Mirror</name>
+         <url>https://devcloud.swcoe.ge.com/artifactory/repo1-cache</url>
+         <mirrorOf>central</mirrorOf>
+      </mirror>
+   </mirrors>
+
+
+   <servers>
+      <server>
+         <id>swcoealppcr01-samp-release</id>
+         <username>502559011</username>
+         <password>AP8p9jsJHdCbTAeaSo9c55Df7y9</password>
+      </server>
+      <server>
+         <id>central</id>
+         <username>502559011</username>
+         <password>AP8p9jsJHdCbTAeaSo9c55Df7y9</password>
+      </server>
+      <server>
+         <id>swcoealppcr01-pds-snapshot</id>
+         <username>502559011</username>
+         <password>AP8p9jsJHdCbTAeaSo9c55Df7y9</password>
+      </server>      
+      <server>
+         <id>swcoealppcr01-pds-release</id>
+         <username>502559011</username>
+         <password>AP8p9jsJHdCbTAeaSo9c55Df7y9</password>
+      </server>
+      <server>
+         <id>RJDNG-MVN-SNAPSHOT</id>
+         <username>502773605</username>
+         <password>Saisravya@2526g</password>
+      </server>    
+      <server>
+         <id>ALSPA</id>
+         <username>502773605</username>
+         <password>Saisravya@2526g</password>
+      </server>
+   </servers>
+   <profiles>
+      <profile>
+         <id>default</id>
+         <repositories>
+            <repository>
+               <id>swcoealppcr01-pds-release</id>
+               <name>PDS Snapshots</name>
+               <url>https://devcloud.swcoe.ge.com/artifactory/KHNYG</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+            </repository>
+            <repository>
+               <id>swcoealppcr01-pds-snapshot</id>
+               <name>PDS Snapshots</name>
+               <url>https://devcloud.swcoe.ge.com/artifactory/KHNYG-SNAPSHOT</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+                  <updatePolicy>always</updatePolicy>
+               </snapshots>
+            </repository>
+           <repository>
+               <id>artifactory</id>
+               <name>ut-release</name>
+               <url>https://devcloud.swcoe.ge.com/artifactory/RJDNG-MVN/</url>
+         </repository>
+
+            <repository>
+               <id>swcoealppcr01-samp-release</id>
+               <name>PDS Snapshots</name>
+               <url>https://devcloud.swcoe.ge.com/artifactory/simple/SAMP</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>false</enabled>
+                  <updatePolicy>never</updatePolicy>
+               </snapshots>
+            </repository>
+           <repository>
+               <id>ALSPA</id>
+               <name>PDS Snapshots</name>
+               <url>https://devcloud.swcoe.ge.com/artifactory/ALSPA</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+                  <updatePolicy>always</updatePolicy>
+               </snapshots>
+            </repository>
+         </repositories>
+      </profile>
+   </profiles>
+   <activeProfiles>
+      <activeProfile>default</activeProfile>
+   </activeProfiles>
+</settings>

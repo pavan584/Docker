@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.ge.trans.tms</groupId>
+   <artifactId>pds_java</artifactId>
+   <version>3.0.19-SNAPSHOT</version>
+   <packaging>pom</packaging>
+   <name>PDS User Interface</name>
+   <description>PDS Java Top-Level Project</description>
+
+	<!-- Needed to tag the release -->
+   <scm>
+      <connection>scm:git:git@github.build.ge.com:NS-UTCS/pds-ui.git</connection>
+      <developerConnection>scm:git:git@github.build.ge.com:NS-UTCS/pds-ui.git</developerConnection>
+   </scm>
+
+   <modules>
+      <module>pds_util</module>
+      <module>pds_client</module>
+      <module>pds_common</module>
+      <module>pds_idl</module>
+      <module>pds_cio</module>
+      <module>ns-ext</module>
+      <module>pvc</module>
+      <module>pds_planner</module>
+      <module>pds_ui_core</module>
+      <module>pds_ui</module>
+      <module>playbacksql</module>
+      <module>server</module>
+      <module>tools</module>
+      <module>version</module>
+      <module>mp_viewgen</module>
+		<module>pds_parent</module>
+		<module>pds-help</module>
+   </modules>
+
+	<build>
+      <pluginManagement>
+         <plugins>
+            <!--This plugin's configuration is used to store Eclipse m2e 
+               settings only. It has no influence on the Maven build itself. -->
+            <plugin>
+               <groupId>org.eclipse.m2e</groupId>
+               <artifactId>lifecycle-mapping</artifactId>
+               <version>1.0.0</version>
+               <configuration>
+                  <lifecycleMappingMetadata>
+                     <pluginExecutions>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.codehaus.mojo</groupId>
+                              <artifactId>exec-maven-plugin</artifactId>
+                              <versionRange>[1.3.2,)</versionRange>
+                              <goals>
+                                 <goal>exec</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>
+                                 org.apache.maven.plugins
+                              </groupId>
+                              <artifactId>
+                                 maven-checkstyle-plugin
+                              </artifactId>
+                              <versionRange>[2.17,)</versionRange>
+                              <goals>
+                                 <goal>check</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.codehaus.mojo</groupId>
+                              <artifactId>
+                                 findbugs-maven-plugin
+                              </artifactId>
+                              <versionRange>[3.0.4,)</versionRange>
+                              <goals>
+                                 <goal>check</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore />
+                           </action>
+                        </pluginExecution>
+                     </pluginExecutions>
+                  </lifecycleMappingMetadata>
+               </configuration>
+            </plugin>
+				<!-- CM plugins -->
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>versions-maven-plugin</artifactId>
+               <version>2.4</version>
+               <configuration>
+                  <generateBackupPoms>false</generateBackupPoms>
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-scm-plugin</artifactId>
+               <version>1.9.5</version>
+               <dependencies>
+                  <dependency>
+                     <groupId>org.sonatype.plexus</groupId>
+                     <artifactId>plexus-cipher</artifactId>
+                     <version>1.4</version>
+                  </dependency>
+               </dependencies>
+               <configuration>
+                  <tag>${project.version}</tag>
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>build-helper-maven-plugin</artifactId>
+               <version>3.0.0</version>
+               <configuration>                           
+                  <formatMajor>%01d</formatMajor>
+                  <formatMinor>%01d</formatMinor>
+                  <formatIncremental>%01d</formatIncremental>
+                  <formatBuildNumber>%01d</formatBuildNumber>
+                  <formattedPropertyPrefix>p</formattedPropertyPrefix>
+               </configuration>
+            </plugin>
+         </plugins>
+		</pluginManagement>
+   </build>
+	<!-- Needed for Deployment -->
+   <distributionManagement>
+      <snapshotRepository>
+         <id>snapshot</id>
+         <url>https://devcloud.swcoe.ge.com/artifactory/KHNYG-SNAPSHOT</url>
+      </snapshotRepository>
+      <repository>
+         <id>release</id>
+         <url>https://devcloud.swcoe.ge.com/artifactory/KHNYG</url>
+      </repository>
+   </distributionManagement>
+</project>
